@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCP Server Tester</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>MCP Server Tester</h1>
+        <p>Test the connectivity and functionality of MCP servers</p>
+      </header>
+
+      <main>
+        <section class="test-form">
+          <h2>Test Configuration</h2>
+          <form id="mcp-test-form">
+            <div class="form-group">
+              <label for="server-url">MCP Server URL</label>
+              <input
+                type="url"
+                id="server-url"
+                placeholder="https://example.com/api/v1/chat"
+                required
+              />
+              <small>Enter the full URL of the MCP server</small>
+            </div>
+
+            <div class="form-group">
+              <label for="api-key">API Key (Optional)</label>
+              <input type="password" id="api-key" placeholder="sk-..." />
+              <small>API key is required for authenticated servers</small>
+            </div>
+
+            <div class="quick-configs">
+              <h3>Quick Configurations</h3>
+              <button
+                type="button"
+                class="config-button"
+                data-url="https://smithery.ai/server/@smithery-ai/server-sequential-thinking"
+              >
+                Sequential Thinking (Smithery)
+              </button>
+              <!-- Additional preconfigured buttons can be added here -->
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="test-button">Test Server</button>
+              <button type="reset" id="reset-button">Reset</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="results" id="results-section" style="display: none">
+          <h2>Test Results</h2>
+          <div class="status-indicator">
+            <div id="status-icon"></div>
+            <span id="status-text">Waiting for test...</span>
+          </div>
+
+          <div class="details">
+            <div class="detail-box" id="connectivity-details">
+              <h3>Connectivity Test</h3>
+              <div id="connectivity-results">
+                <!-- Connectivity results will be inserted here -->
+              </div>
+            </div>
+
+            <div class="detail-box" id="functionality-details">
+              <h3>Functionality Test</h3>
+              <div id="functionality-results">
+                <!-- Functionality results will be inserted here -->
+              </div>
+            </div>
+
+            <div class="detail-box" id="error-details" style="display: none">
+              <h3>Error Details</h3>
+              <div id="error-results">
+                <!-- Error results will be inserted here -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="documentation">
+          <h2>Documentation</h2>
+          <div class="docs-content">
+            <h3>How to Use</h3>
+            <ol>
+              <li>Enter the MCP server URL (required)</li>
+              <li>If the server requires authentication, enter the API key</li>
+              <li>
+                Click "Test Server" to verify connectivity and functionality
+              </li>
+            </ol>
+
+            <h3>About MCP Servers</h3>
+            <p>
+              MCP (Model Completion Provider) servers are API endpoints that
+              provide AI model functionality. This tool helps verify if your MCP
+              server is working correctly.
+            </p>
+
+            <h3>Getting a Server URL</h3>
+            <p>
+              You can obtain MCP server URLs from marketplaces like
+              <a href="https://smithery.ai/" target="_blank">Smithery</a>.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>MCP Server Tester</p>
+      </footer>
+    </div>
+
+    <div id="loading-overlay" class="hidden">
+      <div class="spinner"></div>
+      <p>Testing server...</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
